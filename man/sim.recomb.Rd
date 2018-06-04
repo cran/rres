@@ -12,7 +12,7 @@ sim.recomb(pedinfo, seglength)
 \item{seglength}{positive real number.}
 }
 \value{
-A list of matrices for each meiosis. Each matrix has two columns: founder genome labels (fgl) and recombination breakpoints (recomb). Grandpaternal meiosis precedes grandmaternal meiosis.
+A list of matrices for each meiosis. Each matrix has two columns: founder genome labels (fgl) and recombination breakpoints (recomb). Paternal meiosis precedes maternal meiosis.
 }
 \description{
 \code{sim.recomb} returns inheritance information simulated on a given pedigree over the specified segment length.

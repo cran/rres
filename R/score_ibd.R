@@ -129,10 +129,10 @@ ibd.proportion = function(inheritance, ind1index, ind2index = NULL, startpos = N
 #' 
 #' \code{fgl2ibd} determines pairwise IBD state given the four founder genome labels of two individuals at a marker.
 #' 
-#' IBD states take value from 1 to 15, which represent the indices of the underlying IBD states from 1111 to 1234 in alphanumeric order. E.g., output 1 means IBD state 1111, output 2 means IBD state 1112 etc. Recoding in, e.g., Jacquard order, can be obtained using \code{\link{recode.ibd}}.
+#' IBD states take value from 1 to 15, which represent the indices of the underlying IBD states from 1111 to 1234 in lexicographical order. E.g., output 1 means IBD state 1111, output 2 means IBD state 1112 etc. Recoding in, e.g., Jacquard order, can be obtained using \code{\link{recode.ibd}}.
 #' 
 #' @param fgl1p,fgl1m,fgl2p,fgl2m positive integer, represents founder genome label.
-#' @return A value between 1 and 15 representing index of IBD state in alphanumeric order.
+#' @return A value between 1 and 15 representing index of IBD state in lexicographical order.
 #' @export
 #' @examples 
 #' fgl2ibd(1, 1, 1, 1)
@@ -217,7 +217,7 @@ fgl2relatedness = function(fgl1p, fgl1m, fgl2p, fgl2m){
 #' 
 #' When only index of one individual is supplied, IBD sharing status for each segment is coded as 0 (not IBD) or 1 (IBD) between the two haplotypes of the individual.
 #' 
-#' When indices of two individuals are supplied, IBD sharing status for each segment is either in relatedness (default) or alphanumeric IBD state, where recoding can be done using \code{\link{recode.ibd}}.
+#' When indices of two individuals are supplied, IBD sharing status for each segment is either in relatedness (default) or lexicographical order of IBD state, where recoding can be done using \code{\link{recode.ibd}}.
 #' 
 #' @param inheritance list of numeric matrices.
 #' @param ind1index,ind2index positive integer, represents index of individual in pedigree.
@@ -239,7 +239,7 @@ fgl2relatedness = function(fgl1p, fgl1m, fgl2p, fgl2m){
 #' 
 #' # IBD segments between the two full sibs
 #' ibd.segment(inheritance, 3, 4) # relatedness
-#' ibd.segment(inheritance, 3, 4, relatedness = FALSE) # alphanumeric IBD state
+#' ibd.segment(inheritance, 3, 4, relatedness = FALSE) # lexicographical order of IBD state
 ibd.segment = function(inheritance, ind1index, ind2index = NULL, relatedness = TRUE){
   ibd = NULL
   startpos = 0
@@ -325,7 +325,7 @@ ibd.segment = function(inheritance, ind1index, ind2index = NULL, relatedness = T
 #' 
 #' When only index of one individual is supplied, IBD sharing status at each marker is coded as 0 (not IBD) or 1 (IBD) between the two haplotypes of the individual.
 #' 
-#' When indices of two individuals are supplied, IBD sharing status at each marker is either in relatedness (default) or alphanumeric IBD state, where recoding can be done using \code{\link{recode.ibd}}.
+#' When indices of two individuals are supplied, IBD sharing status at each marker is either in relatedness (default) or lexicographical order of IBD state, where recoding can be done using \code{\link{recode.ibd}}.
 #' 
 #' @param inheritance list of numeric matrices.
 #' @param marker numeric vector.
@@ -350,7 +350,7 @@ ibd.segment = function(inheritance, ind1index, ind2index = NULL, relatedness = T
 #' 
 #' # IBD at markers between the two full sibs, with different IBD coding
 #' ibd.marker(inheritance, marker, 3, 4) # relatedness
-#' ibd.marker(inheritance, marker, 3, 4, relatedness = FALSE) # alphanumeric IBD state
+#' ibd.marker(inheritance, marker, 3, 4, relatedness = FALSE) # lexicographical order of IBD state
 ibd.marker = function(inheritance, marker, ind1index, ind2index = NULL, relatedness = TRUE){
   L = tail(c(inheritance[[1]]),1)
   if(min(marker) < 0 || max(marker) > L){

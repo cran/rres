@@ -22,7 +22,7 @@ A dataframe of three variables. \code{ibd} represents IBD sharing status of a se
 \details{
 When only index of one individual is supplied, IBD sharing status for each segment is coded as 0 (not IBD) or 1 (IBD) between the two haplotypes of the individual.
 
-When indices of two individuals are supplied, IBD sharing status for each segment is either in relatedness (default) or alphanumeric IBD state, where recoding can be done using \code{\link{recode.ibd}}.
+When indices of two individuals are supplied, IBD sharing status for each segment is either in relatedness (default) or lexicographical order of IBD state, where recoding can be done using \code{\link{recode.ibd}}.
 }
 \examples{
 # a simple pedigree with sibling marriage
@@ -39,5 +39,5 @@ ibd.segment(inheritance, 5)
 
 # IBD segments between the two full sibs
 ibd.segment(inheritance, 3, 4) # relatedness
-ibd.segment(inheritance, 3, 4, relatedness = FALSE) # alphanumeric IBD state
+ibd.segment(inheritance, 3, 4, relatedness = FALSE) # lexicographical order of IBD state
 }

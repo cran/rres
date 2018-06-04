@@ -40,7 +40,7 @@ input.haplotype = TRUE)
 }
 }
 \references{
-MORGAN Tutorial, \url{https://www.stat.washington.edu/thompson/Stuff/morgan-tut.html}.
+MORGAN Tutorial, \url{https://www.stat.washington.edu/thompson/Genepi/MORGAN/Morgan.shtml}.
 
 Brown et al. (2012) Genetics 190:1447-1460, \url{https://www.ncbi.nlm.nih.gov/pubmed/22298700}.
 }

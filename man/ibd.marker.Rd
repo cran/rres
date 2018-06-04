@@ -25,7 +25,7 @@ A numeric vector of IBD sharing status at the list of marker positions.
 \details{
 When only index of one individual is supplied, IBD sharing status at each marker is coded as 0 (not IBD) or 1 (IBD) between the two haplotypes of the individual.
 
-When indices of two individuals are supplied, IBD sharing status at each marker is either in relatedness (default) or alphanumeric IBD state, where recoding can be done using \code{\link{recode.ibd}}.
+When indices of two individuals are supplied, IBD sharing status at each marker is either in relatedness (default) or lexicographical order of IBD state, where recoding can be done using \code{\link{recode.ibd}}.
 }
 \examples{
 # a simple pedigree with sibling marriage
@@ -44,5 +44,5 @@ ibd.marker(inheritance, marker, 5)
 
 # IBD at markers between the two full sibs, with different IBD coding
 ibd.marker(inheritance, marker, 3, 4) # relatedness
-ibd.marker(inheritance, marker, 3, 4, relatedness = FALSE) # alphanumeric IBD state
+ibd.marker(inheritance, marker, 3, 4, relatedness = FALSE) # lexicographical order of IBD state
 }

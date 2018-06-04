@@ -10,7 +10,7 @@
 #' @importFrom utils read.table tail
 #' @param pedinfo dataframe.
 #' @param seglength positive real number.
-#' @return A list of matrices for each meiosis. Each matrix has two columns: founder genome labels (fgl) and recombination breakpoints (recomb). Grandpaternal meiosis precedes grandmaternal meiosis.
+#' @return A list of matrices for each meiosis. Each matrix has two columns: founder genome labels (fgl) and recombination breakpoints (recomb). Paternal meiosis precedes maternal meiosis.
 #' @examples
 #' # a simple pedigree with sibling marriage
 #' pedigree = as.character(rep(1, 5))
@@ -56,7 +56,7 @@ sim.recomb = function(pedinfo, seglength){
         fa.inher.count = 1
 
         while(fa.switch.count < length(fa.recomb) + 2){
-          if(fa.parental[fa.switch.count] == 1){ # grandpaternal
+          if(fa.parental[fa.switch.count] == 1){ # paternal
             while(fa.switch.count > 1 && output[[fa.id * 2 - 1]][fa.gp.count, 2] < fa.recomb[fa.switch.count - 1]){
               fa.gp.count = fa.gp.count + 1
             }
@@ -91,7 +91,7 @@ sim.recomb = function(pedinfo, seglength){
                 break
               }
             }
-          }else{ # grandmaternal
+          }else{ # maternal
             while(fa.switch.count > 1 && output[[fa.id * 2]][fa.gm.count, 2] < fa.recomb[fa.switch.count - 1]){
               fa.gm.count = fa.gm.count + 1
             }
@@ -147,7 +147,7 @@ sim.recomb = function(pedinfo, seglength){
         mo.inher.count = 1
 
         while(mo.switch.count < length(mo.recomb) + 2){
-          if(mo.parental[mo.switch.count] == 1){ # grandpaternal
+          if(mo.parental[mo.switch.count] == 1){ # paternal
             while(mo.switch.count > 1 && output[[mo.id * 2 - 1]][mo.gp.count, 2] < mo.recomb[mo.switch.count - 1]){
               mo.gp.count = mo.gp.count + 1
             }
@@ -182,7 +182,7 @@ sim.recomb = function(pedinfo, seglength){
                 break
               }
             }
-          }else{ # grandmaternal
+          }else{ # maternal
             while(mo.switch.count > 1 && output[[mo.id * 2]][mo.gm.count, 2] < mo.recomb[mo.switch.count - 1]){
               mo.gm.count = mo.gm.count + 1
             }

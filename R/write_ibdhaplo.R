@@ -11,7 +11,7 @@
 #' @param input.allele logical, default TRUE.
 #' @param input.haplotype logical, default FALSE.
 #' @param outfile string, output file name.
-#' @references MORGAN Tutorial, \url{https://www.stat.washington.edu/thompson/Stuff/morgan-tut.html}.
+#' @references MORGAN Tutorial, \url{https://www.stat.washington.edu/thompson/Genepi/MORGAN/Morgan.shtml}.
 #' @references Brown et al. (2012) Genetics 190:1447-1460, \url{https://www.ncbi.nlm.nih.gov/pubmed/22298700}.
 #' 
 #' @examples 

@@ -9,7 +9,7 @@ recode.ibd(ibdvec, from, to)
 \arguments{
 \item{ibdvec}{numeric vector of input IBD sharing information.}
 
-\item{from, to}{string, IBD sharing information options include "ibdstate", "alphanumeric", "jacquard", "jacquard.reduced" and "relatedness".}
+\item{from, to}{string, IBD sharing information options include "ibdstate", "lexi", "jac", "jac.red" and "relatedness".}
 }
 \value{
 A numeric vector of recoded IBD states.
@@ -18,14 +18,14 @@ A numeric vector of recoded IBD states.
 \code{recode.ibd} recodes pairwise IBD sharing information.
 }
 \details{
-At any marker, there are 15 possible IBD states between the four genes of two individuals. "ibdstate" represents the standard coding of the 15 states from 1111 to 1234. "alphanumeric" and "jacquard" are different ordering of "ibdstate" from 1 to 15. "jacquard.reduced" is a condensed ordering from 1 to 9 for the genotypically distinct groups of IBD states when phasing is unknown. "relatedness" refers to local relatedness coefficient taking values in (0, 0.5, 1, 2).
+At any marker, there are 15 possible IBD states between the four genes of two individuals. "ibdstate" represents the standard coding of the 15 states from 1111 to 1234. "lexi" and "jac" represent lexicographical and Jacquard ordering of "ibdstate" from 1 to 15 respectively. "jac.red" is a condensed Jacquard ordering from 1 to 9 for the genotypically distinct groups of IBD states when phasing is unknown. "relatedness" refers to local relatedness coefficient taking values in (0, 0.5, 1, 2).
 
-"ibdstate", "alphanumeric" and "jacquard" are of the highest level (complete information), "jacquard.reduced" is of mid level, whereas "relatedness" is of the lowest level. Conversion cannot go from lower level to higher level.
+"ibdstate", "lexi" and "jac" are of the highest level (complete information), "jac.red" is of mid level, whereas "relatedness" is of the lowest level. Conversion cannot go from lower level to higher level.
 }
 \examples{
 test.state = c(1111, 1122, 1212, 1222, 1234)
-recode.ibd(test.state, "ibdstate", "alphanumeric")
-recode.ibd(test.state, "ibdstate", "jacquard")
-recode.ibd(test.state, "ibdstate", "jacquard.reduced")
+recode.ibd(test.state, "ibdstate", "lexi")
+recode.ibd(test.state, "ibdstate", "jac")
+recode.ibd(test.state, "ibdstate", "jac.red")
 recode.ibd(test.state, "ibdstate", "relatedness")
 }
